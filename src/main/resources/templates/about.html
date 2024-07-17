@@ -1,0 +1,42 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is About page</h1>
+~{ filname :: fragment name} 
+  repalce to replace host tag (div in which we call fragment) and insert to insert frafment in given host tag
+    <div th:replace="~{base :: parent('one','two')}"> 
+
+    </div>
+
+    to print content or dynamic element on same page
+     <div th:replace="~{base :: parent1(~{::p})}">
+        <p>Hi this is live example</p>
+        <div class="first">We can use .nameofclass for access instead of class name</div>
+        <div id="second">We can use #nameOfid for access</div>
+     </div>
+
+     
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en"  th:replace="~{base :: parent(~{::#content},~{::#title})}">
+    <head>
+        <title id="title">About Page</title>
+    </head>
+    <body>
+        
+        <div id="content">
+            <h1>Hi this is About Page</h1>
+            
+        </div>
+    </body>
+
+</html>

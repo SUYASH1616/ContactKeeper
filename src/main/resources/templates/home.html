@@ -1,0 +1,55 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+     @ to add relative path
+    <link rel="stylesheet" data-th-href="@{'css/output.css'}">
+    FLOWBITE 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <style>
+        .container{
+            margin:auto;
+            width: 50%;
+            padding: 30ox;
+            background: #e2e2e2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-2xl">
+        //data-th-text is thmeleaf attribute to fetch data from backend 
+          or data-th-text 
+        <h1 th:text="${name}">Welcome to home page</h1>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur voluptas animi quam ex tempore, distinctio quisquam, obcaecati dolorum nihil molestias nisi alias labore, voluptatem quod rem. Modi, accusamus, sequi alias culpa recusandae vitae voluptatum nesciunt nam sapiente est aliquam quam consequuntur esse atque, illo sed repellendus ducimus amet corporis? Perspiciatis.
+        </p>
+    </div>
+    
+<a href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+
+    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy technology acquisitions 2021</h5>
+    <p class="font-normal text-gray-700 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.</p>
+    </a>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en"  th:replace="~{base :: parent(~{::#content},~{::#title})}">
+    <head>
+        <title id="title">Home Page</title>
+    </head>
+    <body>
+        
+        <div id="content">
+            <h1>Hi this is home Page</h1>
+            
+        </div>
+    </body>
+
+</html>

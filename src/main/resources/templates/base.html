@@ -1,0 +1,53 @@
+<!-- <div th:fragment="parent(x,y)">
+    <h1>This is showing use of fragment</h1>
+    <h2>hi This is suyash</h2>
+    <h1>This is x <span th:text="${x}"></span></h1>
+
+</div>
+
+
+<div th:fragment="parent1(content)">
+    <h1>This is showing use of fragment</h1>
+    <h2>hi This is suyash</h2>
+    
+    <div th:replace="${content}"></div>
+</div> -->
+
+
+<!DOCTYPE html>
+<html class="light" lang="en" th:fragment="parent(content,title)" xmlns:th="http://www.thymleaf/.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">Base Page</title>
+    <!-- @ to add relative path -->
+    <link rel="stylesheet" data-th-href="@{'css/output.css'}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- FLOWBITE -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
+</head>
+<body class="dark:bg-gray-900 dark:text-white">
+    <!-- main content -->
+     <div th:replace="~{navbar::navbar}">this content from navbar</div>
+    <!-- <ul>
+        <li >
+            <a th:href="@{'/about'}">About page</a>
+        </li>
+        <li >
+            <a th:href="@{'/home'}">Home page</a>
+        </li>
+        <li >
+            <a th:href="@{/services}">services page</a>
+        </li>
+    </ul> -->
+    
+    <section th:replace="${content}"></section>
+
+    <!-- footer -->
+     <footer class="p-4">This is smart contact manager</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script th:src="@{'/script/script.js'}"></script>
+</body>
+</html>
