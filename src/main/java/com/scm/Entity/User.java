@@ -4,6 +4,8 @@ import java.util.*;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
@@ -41,6 +43,7 @@ public class User {
     private boolean emailVerified=false;
     private boolean phoneVerified=false;
 
+    @Enumerated(value = EnumType.STRING)
     // tells from which type of login is
     private Providers provider=Providers.SELF;
     private String providerUserId;

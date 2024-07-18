@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.scm.Entity.User;
 import com.scm.Forms.UserForm;
 import com.scm.Services.userService;
+import com.scm.helper.Message;
+import com.scm.helper.MessageType;
+
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -71,18 +75,30 @@ public class PageController {
    }
 
    @RequestMapping(value = "/do-register", method=RequestMethod.POST)
-   public String processRegister(@ModelAttribute UserForm userForm) {
+   public String processRegister(@ModelAttribute UserForm userForm,HttpSession session) {
+    
     // Binds request parameters to a method parameter
-        User user=User.builder()
-            .name(userForm.getName())
-            .email(userForm.getEmail())
-            .password(userForm.getPassword())
-            .about(userForm.getAbout())
-            .phoneNumber(userForm.getPhoneNumber())
-            .profilePic("https://wallpapersafari.com/boy-profile-wallpapers/")
-            .build();
+        // User user=User.builder()
+        //     .name(userForm.getName())
+        //     .email(userForm.getEmail())
+        //     .password(userForm.getPassword())
+        //     .about(userForm.getAbout())
+        //     .phoneNumber(userForm.getPhoneNumber())
+        //     .profilePic("https://wallpapersafari.com/boy-profile-wallpapers/")
+        //     .build();
+        User user=new User();
+        user.setName(userForm.getName());
+        user.setEmail(userForm.getEmail());
+        user.setPassword(userForm.getPassword());
+        user.setAbout(userForm.getAbout());
+        user.setPhoneNumber(userForm.getPhoneNumber());
+        user.setProfilePic("https://wallpapersafari.com/boy-profile-wallpapers/");
 
+        
         User savedUser=userService1.saveUser(user);
+        System.out.println("Saved");
+        Message message=Message.builder().content("Registration successfully").type(MessageType.green).build();
+        session.setAttribute("message", message);
        return "redirect:/register";
    }
    
