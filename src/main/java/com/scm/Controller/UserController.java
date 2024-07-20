@@ -13,4 +13,9 @@ public class UserController {
     public String getDashboard() {
         return "user/dashboard";
     }
+
+    @GetMapping("/profile")
+    public String getProfile() {
+        return "user/profile";
+    }
 }
