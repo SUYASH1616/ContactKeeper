@@ -8,25 +8,32 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.scm.Entity.User;
 import com.scm.Repositories.UserRepo;
 import com.scm.Services.userService;
+import com.scm.helper.AppConstants;
 import com.scm.helper.ResourceNotFoundException;
 
 @Service
 public class UserServicesImpl implements userService {
 
-    @Autowired
+   @Autowired
     private UserRepo userRepo;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
     private Logger logger=LoggerFactory.getLogger(this.getClass());
     @Override
     public User saveUser(User user) {
         // create automatically and save
         String id=UUID.randomUUID().toString();
         user.setUserId(id);
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoleList(List.of(AppConstants.ROLE_USER));
+        logger.info(user.getProvider().toString());
         return userRepo.save(user);
     }
 

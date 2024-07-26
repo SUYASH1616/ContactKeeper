@@ -31,6 +31,11 @@ public class PageController {
     @Autowired
     private userService userService1;
 
+    @GetMapping("/")
+    public String getIndex(){
+        return "redirect:/home";
+    }
+    
     //to specify url
    @RequestMapping("/about")
 
@@ -77,7 +82,7 @@ public class PageController {
    }
 
    @RequestMapping(value = "/do-register", method = RequestMethod.POST)
-public String processRegister(@ModelAttribute @Valid UserForm userForm, BindingResult bindingResult, HttpSession session) {
+    public String processRegister(@ModelAttribute @Valid UserForm userForm, BindingResult bindingResult, HttpSession session) {
     if (bindingResult.hasErrors()) {
         return "register";
     }
@@ -91,8 +96,9 @@ public String processRegister(@ModelAttribute @Valid UserForm userForm, BindingR
     user.setProfilePic("https://wallpapersafari.com/boy-profile-wallpapers/");
     
     User savedUser = userService1.saveUser(user);
-    System.out.println("Saved");
     
+    
+    // 
     Message message = Message.builder().content("Registration successfully").type(MessageType.green).build();
     session.setAttribute("message", message);
     

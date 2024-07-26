@@ -13,6 +13,7 @@ import lombok.AllArgsConstructor;
 @Builder
 public class Message {
     private String content;
+    // this is an enum messageType
     @Builder.Default
     private MessageType type=MessageType.blue;
 }
