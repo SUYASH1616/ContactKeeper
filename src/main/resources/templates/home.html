@@ -47,8 +47,57 @@
     <body>
         
         <div id="content">
-            <h1>Hi this is home Page</h1>
-            
+            <section class="bg-white dark:bg-gray-900 py-16">
+                <div class="max-w-screen-xl mx-auto px-4">
+                    <div class="text-center">
+                        <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white">Welcome to ContactKeeper</h1>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">Effortlessly manage your contacts and keep them secure.</p>
+                        <div class="mt-8 flex justify-center space-x-4">
+                            <a href="/register" 
+                               th:if="${loggedInUser == null}" 
+                               class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-3 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700">Get Started</a>
+                            <a href="/about" 
+                               class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-700">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="bg-gray-50 dark:bg-gray-800 py-16">
+                <div class="max-w-screen-xl mx-auto px-4">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md">
+                            <i class="fa fa-user-friends text-4xl text-blue-600 dark:text-blue-400"></i>
+                            <h3 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Manage Contacts</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-300">Easily add, edit, and delete contacts. Keep your address book organized.</p>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md">
+                            <i class="fa fa-shield-alt text-4xl text-blue-600 dark:text-blue-400"></i>
+                            <h3 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Secure & Private</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-300">Your contacts are secure with our advanced encryption methods.</p>
+                        </div>
+                        <div class="p-6 bg-white dark:bg-gray-700 rounded-lg shadow-md">
+                            <i class="fa fa-sync-alt text-4xl text-blue-600 dark:text-blue-400"></i>
+                            <h3 class="mt-4 text-2xl font-bold text-gray-900 dark:text-white">Sync Across Devices</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-300">Access your contacts from any device, anywhere, anytime.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
+            <section class="bg-white dark:bg-gray-900 py-16">
+                <div class="max-w-screen-xl mx-auto px-4">
+                    <div class="text-center">
+                        <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white">Why Choose ContactKeeper?</h2>
+                        <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">Our platform offers the best features to manage your contacts efficiently and securely.</p>
+                        <div class="mt-8 flex justify-center space-x-4">
+                            <a href="/services" class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-3 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700">Our Services</a>
+                            <a href="/contact" class="text-blue-600 border border-blue-600 hover:bg-blue-600 hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-3 dark:border-blue-500 dark:text-blue-500 dark:hover:bg-blue-500 dark:hover:text-white dark:focus:ring-blue-700">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        
         </div>
     </body>
 

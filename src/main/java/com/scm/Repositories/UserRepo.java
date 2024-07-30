@@ -18,6 +18,7 @@ public interface UserRepo extends JpaRepository<User,String> {
     // this custom finders methods
     // this are extra quries(need not to define implementation spring boot will automaticlly define it once u declared in this interface)
     Optional<User> findByEmail(String email);
+    Optional<User> findByEmailToken(String email);
     Optional<User> findByEmailAndPassword(String email,String password);
     
 }

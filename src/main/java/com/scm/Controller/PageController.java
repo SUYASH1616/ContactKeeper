@@ -82,6 +82,7 @@ public class PageController {
    }
 
    @RequestMapping(value = "/do-register", method = RequestMethod.POST)
+//    @modelAttribute to take value from model inprevious steps(model.addAttribute) for this controller.
     public String processRegister(@ModelAttribute @Valid UserForm userForm, BindingResult bindingResult, HttpSession session) {
     if (bindingResult.hasErrors()) {
         return "register";
@@ -102,7 +103,7 @@ public class PageController {
     Message message = Message.builder().content("Registration successfully").type(MessageType.green).build();
     session.setAttribute("message", message);
     
-    return "redirect:/register";
+    return "redirect:/user/dashboard";
 }
 
    

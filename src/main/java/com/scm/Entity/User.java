@@ -48,12 +48,14 @@ public class User implements UserDetails {
     private String profilePic;
     private String phoneNumber;
     @Getter(AccessLevel.NONE)
-    private boolean enabled=true;
+    private boolean enabled=false;
     private boolean emailVerified=false;
     private boolean phoneVerified=false;
+    private String emailToken;
 
     @Enumerated(value = EnumType.STRING)
     // tells from which type of login is
+    
     private Providers provider=Providers.SELF;
     private String providerUserId;
 

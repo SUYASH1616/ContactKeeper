@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -18,6 +19,12 @@ public class SecurityConfig {
     @Autowired
     private SecurityCustomUserDetailService userDetailsService;
 
+    @Autowired
+    private OAuthenticationSuccessHandler oAuthenticationSuccessHandler;
+
+    @Autowired
+    private AuthFailtureHandler authFailtureHandler;
+
     // public SecurityConfig(SecurityCustomUserDetailService userDetailsService) {
     //     this.userDetailsService = userDetailsService;
     // }
@@ -29,15 +36,18 @@ public class SecurityConfig {
             authorize.requestMatchers("/user/**").authenticated();
             authorize.anyRequest().permitAll();
         });
-
+        
+        // we can give default login page with some other syntax
         httpSecurity.formLogin(formLogin -> {
             formLogin.loginPage("/login");
             // post
             formLogin.loginProcessingUrl("/authenticate");
-            formLogin.defaultSuccessUrl("/user/dashboard", true);
+            formLogin.defaultSuccessUrl("/user/profile", true);
             formLogin.failureUrl("/login?error=true");
             formLogin.usernameParameter("email");
             formLogin.passwordParameter("password");
+
+            formLogin.failureHandler(authFailtureHandler);
         });
 
         // THESE ARE GET REQUEST.   
@@ -48,6 +58,15 @@ public class SecurityConfig {
             logoutForm.logoutUrl("/logout");
             logoutForm.logoutSuccessUrl("/login?logout=true ");
         });
+
+        // this default OAuth2 page
+        // httpSecurity.oauth2Login(Customizer.withDefaults());
+        httpSecurity.oauth2Login(oauth->{
+            oauth.loginPage("/login");
+            // to provide path from default page link
+            oauth.successHandler(oAuthenticationSuccessHandler);
+        });
+
         return httpSecurity.build();
     }
 

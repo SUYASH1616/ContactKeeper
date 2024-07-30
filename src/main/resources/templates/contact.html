@@ -6,8 +6,86 @@
     <body>
         
         <div id="content">
-            <h1>Hi this is Contact Page</h1>
-            
+            <main class="flex-grow">
+                <section class="bg-white dark:bg-gray-900 py-16">
+                    <div class="max-w-screen-xl mx-auto px-4">
+                        <div class="text-center mb-12">
+                            <div class="relative bg-gradient-to-r from-blue-100 to-teal-100 dark:from-blue-800 dark:to-teal-800 py-16">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto text-center">
+                                        <h1 class="text-5xl font-extrabold text-gray-900 dark:text-white mb-4">
+                                            Contact Us
+                                        </h1>
+                                        <p class="text-lg text-gray-600 dark:text-gray-300">
+                                            We’d love to hear from you! Whether you have questions, feedback, or need assistance, feel free to reach out to us through any of the contact methods listed below.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-8 flex justify-center items-center">
+                                <div class="bg-gradient-to-r from-blue-500 to-teal-500 p-1 rounded-full">
+                                    <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg">
+                                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Get in Touch</h2>
+                                        <p class="mt-4 text-gray-600 dark:text-gray-300">
+                                            Our team is here to assist you. Use the form or contact details provided to reach out to us. We aim to respond as quickly as possible.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-12 flex flex-col md:flex-row md:justify-between gap-8">
+                            <!-- Contact Form -->
+                            <div class="md:w-1/2">
+                                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Get in Touch</h2>
+                                    <form action="/submit-form" method="post" class="mt-6 space-y-4">
+                                        <div>
+                                            <label for="name" class="block text-gray-700 dark:text-gray-300">Name</label>
+                                            <input type="text" id="name" name="name" class="w-full mt-1 p-2 border border-gray-300 rounded-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white" required>
+                                        </div>
+                                        <div>
+                                            <label for="email" class="block text-gray-700 dark:text-gray-300">Email</label>
+                                            <input type="email" id="email" name="email" class="w-full mt-1 p-2 border border-gray-300 rounded-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white" required>
+                                        </div>
+                                        <div>
+                                            <label for="message" class="block text-gray-700 dark:text-gray-300">Message</label>
+                                            <textarea id="message" name="message" rows="4" class="w-full mt-1 p-2 border border-gray-300 rounded-lg dark:border-gray-600 dark:bg-gray-700 dark:text-white" required></textarea>
+                                        </div>
+                                        <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700">Send Message</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <!-- Contact Details -->
+                            <div class="md:w-1/2">
+                                <div class="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-md">
+                                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Contact Details</h2>
+                                    <div class="mt-6 space-y-4">
+                                        <div class="flex items-center">
+                                            <i class="fas fa-map-marker-alt text-2xl text-blue-600 dark:text-blue-400"></i>
+                                            <p class="ml-4 text-gray-600 dark:text-gray-300">123 Main Street, Anytown, USA</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-phone text-2xl text-blue-600 dark:text-blue-400"></i>
+                                            <p class="ml-4 text-gray-600 dark:text-gray-300">+1 (123) 456-7890</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-envelope text-2xl text-blue-600 dark:text-blue-400"></i>
+                                            <p class="ml-4 text-gray-600 dark:text-gray-300">support@contactkeeper.com</p>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-clock text-2xl text-blue-600 dark:text-blue-400"></i>
+                                            <p class="ml-4 text-gray-600 dark:text-gray-300">Mon - Fri: 9:00 AM - 5:00 PM</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        
         </div>
     </body>
 

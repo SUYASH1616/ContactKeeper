@@ -1,12 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::#title})}">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title id="title">profile Page</title>
 </head>
+
 <body>
-    <h1>This is user dashbaord</h1>
-    <button><a th:href="@{'/logout'}">Logot</a></button>
+
+    <div id="content">
+        <!-- if user logged in then sidebar -->
+        <div th:if="${loggedInUser}">
+            <div th:replace="~{user/sidebar :: sidebar}"></div>
+        </div>
+        <div class="pl-64 pt-20" style="height: 1000px;">
+            <div class="flex justify-center items-center flex-col">
+                <h1 class="text-5xl">Welcome To Dashboard page</h1>
+                <p>
+                    optio repudiandae at officiis velit hic, doloribus voluptates quo non! Ipsa provident tenetur quia.
+                    Ab.
+                </p>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
